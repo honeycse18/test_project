@@ -8,6 +8,7 @@ import 'package:test_project/utils/theme/theme.dart';
 
 Future<void> main() async {
   await GetStorage.init();
+
   runApp(MyApp());
 }
 
@@ -18,15 +19,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Test Project',
-      getPages: AppPages.pages,
-      unknownRoute: AppPages.unknownScreenPageRoute,
-      initialRoute: AppPageNames.rootScreen,
-      debugShowCheckedModeBanner: false,
-      theme: AppThemeData.lightTheme,
-      darkTheme: AppThemeData.darkTheme,
-      themeMode: themeController.theme,
-    );
+    return Obx(() => GetMaterialApp(
+          title: 'Test Project',
+          getPages: AppPages.pages,
+          unknownRoute: AppPages.unknownScreenPageRoute,
+          initialRoute: AppPageNames.rootScreen,
+          debugShowCheckedModeBanner: false,
+          theme: AppThemeData.lightTheme,
+          darkTheme: AppThemeData.darkTheme,
+          themeMode: themeController.isDarkMode.value
+              ? ThemeMode.dark
+              : ThemeMode.light, // Dynamically update theme
+        ));
   }
 }
