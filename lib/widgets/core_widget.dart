@@ -128,7 +128,7 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: appBar,
-      body: Container(
+      body: SizedBox(
         height: screenHeight,
         child: Stack(
           alignment: Alignment.topCenter,

@@ -9,7 +9,6 @@ import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/constant.dart';
 import 'package:test_project/utils/constants/images.dart';
-import 'package:test_project/widgets/core_widget.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
