@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
         global: false,
         init: LoginController(),
         builder: (controller) => CustomScaffold(
-              resizeToAvoidBottomInset: true,
+              resizeToAvoidBottomInset: false,
               body: SafeArea(
                 child: SingleChildScrollView(
                   child: ConstrainedBox(

@@ -124,7 +124,7 @@ class IntroScreen extends StatelessWidget {
                   AppGaps.hGap30,
                   Container(
                     width: 300,
-                    height: 40,
+                    height: 50,
                     color: Colors.transparent,
                     child: Stack(
                       children: [

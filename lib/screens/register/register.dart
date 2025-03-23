@@ -25,7 +25,7 @@ class Register extends StatelessWidget {
         global: false,
         init: RegisterController(),
         builder: (controller) => CustomScaffold(
-              resizeToAvoidBottomInset: true,
+              resizeToAvoidBottomInset: false,
               body: SafeArea(
                 child: SingleChildScrollView(
                   child: ConstrainedBox(
