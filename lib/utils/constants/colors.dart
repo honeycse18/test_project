@@ -8,6 +8,7 @@ class AppColors {
   static const Color signUpColor = Color(0xFF22B5DA);
   static const Color logoColor1 = Color(0xFF3B5999);
   static const Color logoColor2 = Color(0xFF03A9F4);
+  static const Color iconBackground = Color(0xFFD3F0F8);
 
   // Box Shadow Color
   static const Color boxShadowColor = Color(0x9494946B);

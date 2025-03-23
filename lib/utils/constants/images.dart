@@ -17,7 +17,14 @@ class AppAssetImages {
   static const String twSVGLogoSolid = '${_solidIconAssetsLocation}tw.svg';
   static const String instaSVGLogoSolid =
       '${_solidIconAssetsLocation}insta.svg';
-  // static const String moreSVGLogoSolid = '${_solidIconAssetsLocation}more.svg';
+  static const String homeSVGLogoSolid = '${_solidIconAssetsLocation}home.svg';
+  static const String groupSVGLogoSolid =
+      '${_solidIconAssetsLocation}group.svg';
+  static const String notificationSVGLogoSolid =
+      '${_solidIconAssetsLocation}notification.svg';
+  static const String settingSVGLogoSolid =
+      '${_solidIconAssetsLocation}setting.svg';
+  static const String addSVGLogoSolid = '${_solidIconAssetsLocation}add.svg';
 
 /*<--------Images-------->*/
 

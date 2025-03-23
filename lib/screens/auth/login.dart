@@ -5,6 +5,7 @@ import 'package:test_project/controllers/login_controller.dart';
 import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/screens/auth/forgot_password.dart';
 import 'package:test_project/screens/register/register.dart';
+import 'package:test_project/screens/wallet.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/constant.dart';
@@ -72,7 +73,9 @@ class Login extends StatelessWidget {
                     AppGaps.hGap26,
                     CustomGradientButton(
                       btntext: AppConstants.loginText,
-                      ontap: () {},
+                      ontap: () {
+                        Get.to(() => WalletScreen());
+                      },
                     ),
                     AppGaps.hGap20,
                     Row(

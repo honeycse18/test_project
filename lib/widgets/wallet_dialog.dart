@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_project/controllers/wallet_controller.dart';
+import 'package:test_project/widgets/wallet_widget.dart';
 
 class NewWalletDialog extends StatelessWidget {
   final WalletController controller = Get.find<WalletController>();

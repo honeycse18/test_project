@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_project/utils/constants/images.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   @override
@@ -18,10 +20,16 @@ class CustomBottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          NavBarItem(icon: Icons.home, label: 'HOME', isSelected: true),
-          NavBarItem(icon: Icons.group, label: 'CIRCLES'),
-          NavBarItem(icon: Icons.notifications, label: 'NOTIFICATION'),
-          NavBarItem(icon: Icons.settings, label: 'SETTINGS'),
+          NavBarItem(
+              icon: AppAssetImages.homeSVGLogoSolid,
+              label: 'HOME',
+              isSelected: true),
+          NavBarItem(icon: AppAssetImages.groupSVGLogoSolid, label: 'CIRCLES'),
+          NavBarItem(
+              icon: AppAssetImages.notificationSVGLogoSolid,
+              label: 'NOTIFICATION'),
+          NavBarItem(
+              icon: AppAssetImages.settingSVGLogoSolid, label: 'SETTINGS'),
         ],
       ),
     );
@@ -29,7 +37,7 @@ class CustomBottomNavBar extends StatelessWidget {
 }
 
 class NavBarItem extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String label;
   final bool isSelected;
 
@@ -44,10 +52,11 @@ class NavBarItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        SvgPicture.asset(
           icon,
+          width: 24,
+          height: 24,
           color: isSelected ? Color(0xFF00C4B4) : Colors.grey,
-          size: 24,
         ),
         Text(
           label,

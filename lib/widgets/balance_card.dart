@@ -1,4 +1,8 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_project/utils/constants/colors.dart';
+import 'package:test_project/utils/constants/images.dart';
 
 class BalanceCard extends StatelessWidget {
   final String title;
@@ -39,7 +43,34 @@ class BalanceCard extends StatelessWidget {
             ? Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.add_circle_outline, size: 30, color: Colors.grey),
+                  DottedBorder(
+                    color: AppColors.signUpColor,
+                    borderType: BorderType.RRect,
+                    strokeWidth: 1,
+                    dashPattern: [4, 4],
+                    radius: Radius.circular(40.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(40.0),
+                      child: Container(
+                        height: 36,
+                        width: 36,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.iconBackground),
+                            child: Center(
+                              child: SvgPicture.asset(
+                                AppAssetImages.addSVGLogoSolid,
+                              ),
+                            )),
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 8),
                   Text(
                     title,
@@ -54,16 +85,15 @@ class BalanceCard extends StatelessWidget {
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (icon != null)
-                    Icon(icon, size: 20, color: Color(0xFF00C4B4)),
+                  Container(
+                      height: 41.74,
+                      width: 41.74,
+                      decoration: BoxDecoration(
+                        color: AppColors.iconBackground,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(icon, size: 20, color: Color(0xFF00C4B4))),
                   SizedBox(height: 4),
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                   SizedBox(height: 4),
                   Text(
                     balance ?? '0.00',
