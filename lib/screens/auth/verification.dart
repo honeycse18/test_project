@@ -13,78 +13,94 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double screenHeight = screenSize.height;
+    final double screenWidth = screenSize.width;
+
     return GetBuilder<VerificationController>(
       global: false,
       init: VerificationController(),
       builder: (controller) => Scaffold(
         body: SafeArea(
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Image.asset(
-                    AppAssetImages.pinbackImage,
-                    height: 574,
-                    width: double.infinity,
-                    fit: BoxFit.fill,
-                  ),
-                ),
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: screenHeight - MediaQuery.of(context).padding.top,
               ),
-              Column(
+              child: Stack(
                 children: [
-                  AppGaps.hGap40,
-                  Center(
-                    child: Image.asset(
-                      AppAssetImages.logoImage,
-                      height: 104.99,
-                      width: 105.08,
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        AppAssetImages.pinbackImage,
+                        height: 600,
+                        width: double.infinity,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
-                  AppGaps.hGap21,
-                  Text(
-                    AppConstants.enterPinText,
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-
-                  AppGaps.hGap100,
-                  AppGaps.hGap30,
-                  // PIN Input Field
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Obx(() => PinInputField(
-                          pin: controller.pinText.value,
-                          onTap: controller.deleteNumber,
-                        )),
-                  ),
-
-                  AppGaps.hGap26,
-                  // Number pad
-                  NumberPad(
-                    onNumberPressed: controller.addNumber,
-                    onDeletePressed: controller.deleteNumber,
-                  ),
-                  AppGaps.hGap24,
-                  // Confirm button
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: CustomButton(
-                      btntext: AppConstants.confirmText,
-                      ontap: controller.confirmPin,
-                    ),
-                  ),
-
-                  // Resend PIN text
-                  TextButton(
-                    onPressed: controller.resendPin,
-                    child: Text(
-                      AppConstants.resendPinText,
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                  ),
+                  Column(
+                    children: [
+                      SizedBox(height: screenHeight * 0.05),
+                      Center(
+                        child: Image.asset(
+                          AppAssetImages.logoImage,
+                          height: screenHeight * 0.12,
+                          width: screenWidth * 0.25,
+                        ),
+                      ),
+                      SizedBox(height: screenHeight * 0.025),
+                      Text(
+                        AppConstants.enterPinText,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      SizedBox(height: screenHeight * 0.15),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
+                        child: Obx(() => PinInputField(
+                              pin: controller.pinText.value,
+                              onTap: controller.deleteNumber,
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+                        child: Container(
+                          width: screenWidth * 0.8,
+                          child: NumberPad(
+                            onNumberPressed: controller.addNumber,
+                            onDeletePressed: controller.deleteNumber,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: CustomButton(
+                            btntext: AppConstants.confirmText,
+                            ontap: controller.confirmPin,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: screenHeight * 0.006),
+                        child: TextButton(
+                          onPressed: controller.resendPin,
+                          child: Text(
+                            AppConstants.resendPinText,
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: screenHeight * 0.01),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),

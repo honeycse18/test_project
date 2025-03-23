@@ -43,26 +43,33 @@ class WalletScreen extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 11, vertical: 8),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            BalanceCard(
-                              title: '',
-                              balance: '0.00',
-                              subtitle: 'Euro',
-                              icon: Icons.euro_rounded,
-                              onTap: () => controller.openNewCad(),
+                            Expanded(
+                              child: BalanceCard(
+                                title: '',
+                                balance: '0.00',
+                                subtitle: 'Euro',
+                                icon: Icons.euro_rounded,
+                                onTap: () => controller.openNewCad(),
+                              ),
                             ),
-                            BalanceCard(
-                              title: '',
-                              balance: '0.00',
-                              subtitle: 'Us Dollar',
-                              icon: Icons.attach_money,
-                              onTap: () => controller.openNewCad(),
+                            AppGaps.wGap10,
+                            Expanded(
+                              child: BalanceCard(
+                                title: '',
+                                balance: '0.00',
+                                subtitle: 'Us Dollar',
+                                icon: Icons.attach_money,
+                                onTap: () => controller.openNewCad(),
+                              ),
                             ),
-                            BalanceCard(
-                              title: 'Open New Wallet',
-                              isAddCard: true,
-                              onTap: () => controller.openNewWallet(),
+                            AppGaps.wGap10,
+                            Expanded(
+                              child: BalanceCard(
+                                title: 'Open New Wallet',
+                                isAddCard: true,
+                                onTap: () => controller.openNewWallet(),
+                              ),
                             ),
                           ],
                         ),

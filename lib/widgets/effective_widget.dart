@@ -7,11 +7,10 @@ import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 
 class EffectiveScoreWidget extends StatelessWidget {
-  final WalletController controller = Get.find<WalletController>();
-
   @override
   Widget build(BuildContext context) {
     final ThemeController themeController = Get.find<ThemeController>();
+    final WalletController controller = Get.find<WalletController>();
 
     return Padding(
       padding: EdgeInsets.all(16),
@@ -45,34 +44,48 @@ class EffectiveScoreWidget extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  SizedBox(height: 4),
+                  AppGaps.hGap4,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ScoreIndicator(
-                        text: 'Very Poor',
-                        color: Colors.red,
-                        showTriangle: false,
+                      Expanded(
+                        child: ScoreIndicator(
+                          text: 'Very Poor',
+                          color: Colors.red,
+                          showTriangle: false,
+                        ),
                       ),
-                      ScoreIndicator(
-                        text: 'Poor',
-                        color: Colors.orange,
-                        showTriangle: false,
+                      AppGaps.wGap4,
+                      Expanded(
+                        child: ScoreIndicator(
+                          text: 'Poor',
+                          color: Colors.orange,
+                          showTriangle: false,
+                        ),
                       ),
-                      ScoreIndicator(
-                        text: 'Fair',
-                        color: Colors.yellow,
-                        showTriangle: false,
+                      AppGaps.wGap4,
+                      Expanded(
+                        child: ScoreIndicator(
+                          text: 'Fair',
+                          color: Colors.yellow,
+                          showTriangle: false,
+                        ),
                       ),
-                      ScoreIndicator(
-                        text: 'Good',
-                        color: Colors.green,
-                        showTriangle: false,
+                      AppGaps.wGap4,
+                      Expanded(
+                        child: ScoreIndicator(
+                          text: 'Good',
+                          color: Colors.green,
+                          showTriangle: false,
+                        ),
                       ),
-                      ScoreIndicator(
-                        text: 'Excellent',
-                        color: Colors.teal,
-                        showTriangle: true,
+                      AppGaps.wGap4,
+                      Expanded(
+                        child: ScoreIndicator(
+                          text: 'Excellent',
+                          color: Colors.teal,
+                          showTriangle: true,
+                        ),
                       ),
                     ],
                   ),
@@ -114,7 +127,6 @@ class ScoreIndicator extends StatelessWidget {
           children: [
             Container(
               height: 6,
-              width: 63,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12), color: color),
             ),

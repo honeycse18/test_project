@@ -110,7 +110,7 @@ class CustomButton extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .labelLarge
-                ?.copyWith(color: AppColors.primaryGradientStart)),
+                ?.copyWith(color: AppColors.primaryGradientEnd)),
       ),
     );
   }

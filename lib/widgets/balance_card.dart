@@ -33,7 +33,6 @@ class BalanceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 117,
         height: 84,
         decoration: BoxDecoration(
           color: themeController.isDarkMode.value
