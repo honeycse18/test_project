@@ -10,6 +10,7 @@ class AppColors {
   static const Color logoColor1 = Color(0xFF3B5999);
   static const Color logoColor2 = Color(0xFF03A9F4);
   static const Color iconBackground = Color(0xFFD3F0F8);
+  static const Color iconBackground2 = Color(0xFF2D4A52);
 
   // Box Shadow Color
   static const Color boxShadowColor = Color(0x9494946B);

@@ -14,18 +14,24 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final WalletController homeController = Get.find<WalletController>();
+    final ThemeController themeController = Get.find<ThemeController>();
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeController.isDarkMode.value
+            ? AppColors.darkprimaryTextColor
+            : Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: Offset(0, -5),
+            color: themeController.isDarkMode.value
+                ? AppColors.signUpColor
+                : AppColors.boxShadow2Color.withOpacity(0.3),
+            blurRadius: 5,
+            offset: Offset(0, 0),
           ),
         ],
       ),
@@ -79,6 +85,8 @@ class NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -89,7 +97,11 @@ class NavBarItem extends StatelessWidget {
             width: 45,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: isSelected ? AppColors.iconBackground : Colors.transparent,
+              color: isSelected
+                  ? (themeController.isDarkMode.value
+                      ? AppColors.iconBackground2
+                      : AppColors.iconBackground)
+                  : Colors.transparent,
             ),
             child: Center(
               child: SvgPicture.asset(

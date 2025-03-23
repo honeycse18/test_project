@@ -1,6 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/images.dart';
@@ -25,19 +28,25 @@ class BalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: 117,
         height: 84,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeController.isDarkMode.value
+              ? AppColors.darkprimaryTextColor
+              : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: themeController.isDarkMode.value
+                  ? AppColors.signUpColor
+                  : AppColors.boxShadow2Color.withOpacity(0.3),
               blurRadius: 5,
-              offset: Offset(0, 4),
+              offset: Offset(0, 0),
             ),
           ],
         ),
@@ -64,7 +73,9 @@ class BalanceCard extends StatelessWidget {
                             width: 30,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColors.iconBackground),
+                                color: themeController.isDarkMode.value
+                                    ? AppColors.iconBackground2
+                                    : AppColors.iconBackground),
                             child: Center(
                               child: SvgPicture.asset(
                                 AppAssetImages.addSVGLogoSolid,
@@ -96,11 +107,13 @@ class BalanceCard extends StatelessWidget {
                           height: 41.74,
                           width: 41.74,
                           decoration: BoxDecoration(
-                            color: AppColors.iconBackground,
+                            color: themeController.isDarkMode.value
+                                ? AppColors.iconBackground2
+                                : AppColors.iconBackground,
                             shape: BoxShape.circle,
                           ),
-                          child:
-                              Icon(icon, size: 20, color: Color(0xFF00C4B4))),
+                          child: Icon(icon,
+                              size: 20, color: AppColors.signUpColor)),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -35,7 +35,7 @@ class NewWalletDialog extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  AppGaps.hGap16,
                   Container(
                     height: 45,
                     decoration: BoxDecoration(
@@ -47,7 +47,7 @@ class NewWalletDialog extends StatelessWidget {
                           color: themeController.isDarkMode.value
                               ? AppColors.signUpColor
                               : AppColors.boxShadow2Color.withOpacity(0.3),
-                          blurRadius: 5,
+                          blurRadius: 2,
                           offset: Offset(0, 0),
                         ),
                       ],
@@ -72,25 +72,25 @@ class NewWalletDialog extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20),
-                child: ListView.builder(
-                  itemCount: controller.currencies.length,
-                  shrinkWrap: true,
-                  padding: EdgeInsets.zero,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        CurrencyItem(
+              child: ListView.builder(
+                itemCount: controller.currencies.length,
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      AppGaps.hGap10,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        child: CurrencyItem(
                           currency: controller.currencies[index],
                         ),
-                        AppGaps.hGap10,
-                      ],
-                    );
-                  },
-                ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
             Container(

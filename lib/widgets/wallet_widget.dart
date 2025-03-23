@@ -98,7 +98,9 @@ class CurrencyItem extends StatelessWidget {
                   width: 32,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppColors.iconBackground,
+                    color: themeController.isDarkMode.value
+                        ? AppColors.iconBackground2
+                        : AppColors.iconBackground,
                   ),
                   child: Center(
                     child: countryCode.isNotEmpty

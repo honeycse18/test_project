@@ -16,7 +16,7 @@ class VerificationScreen extends StatelessWidget {
     return GetBuilder<VerificationController>(
       global: false,
       init: VerificationController(),
-      builder: (controller) => CustomScaffold(
+      builder: (controller) => Scaffold(
         body: SafeArea(
           child: Stack(
             children: [

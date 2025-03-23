@@ -60,7 +60,7 @@ class Register extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 26.0, right: 26),
                       child: CustomGradientBorderTextField(
-                        controller: controller.passwordController,
+                        controller: controller.confirmPasswordController,
                         labelText: ' Confirm Password ',
                         obscureText: true,
                       ),

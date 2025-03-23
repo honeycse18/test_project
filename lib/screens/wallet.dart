@@ -57,7 +57,7 @@ class WalletScreen extends StatelessWidget {
                               balance: '0.00',
                               subtitle: 'Us Dollar',
                               icon: Icons.attach_money,
-                             onTap: () => controller.openNewCad(),
+                              onTap: () => controller.openNewCad(),
                             ),
                             BalanceCard(
                               title: 'Open New Wallet',
@@ -69,49 +69,40 @@ class WalletScreen extends StatelessWidget {
                       ),
                       AppGaps.hGap17,
                       Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Effective Score
+                            EffectiveScoreWidget(),
+
+                            // Transaction list
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 20, right: 20, top: 11, bottom: 14),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Last Activity',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall
+                                          ?.copyWith(
+                                              color:
+                                                  AppColors.primaryTextColor)),
+                                  Icon(
+                                    Icons.more_vert,
+                                    color: AppColors.primaryTextColor,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Effective Score
-                              EffectiveScoreWidget(),
 
-                              // Transaction list
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20, right: 20, top: 11, bottom: 14),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('Last Activity',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall
-                                            ?.copyWith(
-                                                color: AppColors
-                                                    .primaryTextColor)),
-                                    Icon(
-                                      Icons.more_vert,
-                                      color: AppColors.primaryTextColor,
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              // Transaction list
-                              Expanded(
-                                child: TransactionList(),
-                              ),
-                            ],
-                          ),
+                            // Transaction list
+                            Expanded(
+                              child: TransactionList(),
+                            ),
+                          ],
                         ),
                       ),
                     ],
