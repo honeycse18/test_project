@@ -26,7 +26,7 @@ class AppThemeData {
       headlineSmall: TextStyle(
           fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
       labelLarge: TextStyle(
-          fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
+          fontSize: 13, color: Colors.white, fontWeight: FontWeight.w600),
       labelMedium: TextStyle(
           fontSize: 13,
           color: AppColors.primaryTextColor,
@@ -60,7 +60,7 @@ class AppThemeData {
     fontFamily: 'Montserrat',
     primarySwatch: AppColors.primaryMaterialColor,
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: AppColors.darkprimaryTextColor,
     textTheme: const TextTheme(
       displayLarge: TextStyle(
           fontSize: 36,
@@ -87,7 +87,7 @@ class AppThemeData {
           color: AppColors.primaryTextColor,
           fontWeight: FontWeight.w600),
       labelLarge: TextStyle(
-          fontSize: 14,
+          fontSize: 13,
           color: AppColors.darkprimaryTextColor,
           fontWeight: FontWeight.w600),
       labelMedium: TextStyle(
@@ -96,7 +96,7 @@ class AppThemeData {
           fontWeight: FontWeight.w600),
       labelSmall: TextStyle(
           fontSize: 13,
-          color: AppColors.primaryTextColor,
+          color: AppColors.darkprimaryTextColor,
           fontWeight: FontWeight.w400),
       bodyMedium: TextStyle(
           fontSize: 10,

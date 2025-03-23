@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:test_project/controllers/intro_controller.dart';
 import 'package:test_project/controllers/theme_controller.dart';
-import 'package:test_project/screens/login.dart';
+import 'package:test_project/screens/auth/login.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/constant.dart';
@@ -21,6 +21,7 @@ class IntroScreen extends StatelessWidget {
       global: false,
       init: IntroController(),
       builder: (controller) => Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           actions: [
             IconButton(
@@ -149,7 +150,7 @@ class IntroScreen extends StatelessWidget {
                                 },
                                 onHorizontalDragEnd: (details) {
                                   if (controller.position.value >= 200) {
-                                    Get.to(() => const Login());
+                                    Get.to(() => Login());
                                     controller.resetPosition();
                                   } else {
                                     controller.resetPosition();

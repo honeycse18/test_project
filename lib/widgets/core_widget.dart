@@ -1,117 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/utils/constants/colors.dart';
-
-// class CustomScaffold extends StatelessWidget {
-//   // final Widget child;
-//   final bool showBottomSection;
-
-//   const CustomScaffold({
-//     super.key,
-//     //  required this.child,
-//     this.showBottomSection = true,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Stack(
-//         children: [
-//           // Bottom section
-//           if (showBottomSection)
-//             Align(
-//               alignment: Alignment.bottomCenter,
-//               child: ClipPath(
-//                 clipper: CustomWaveClipper(),
-//                 child: Container(
-//                   height: 250,
-//                   width: double.infinity,
-//                   decoration: const BoxDecoration(
-//                     gradient: LinearGradient(
-//                       colors: [Colors.blue, Colors.green],
-//                       begin: Alignment.topLeft,
-//                       end: Alignment.bottomRight,
-//                     ),
-//                   ),
-//                   child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.center,
-//                     children: [
-//                       // const Text(
-//                       //   'Welcome',
-//                       //   style: TextStyle(
-//                       //     fontSize: 22,
-//                       //     fontWeight: FontWeight.bold,
-//                       //     color: Colors.white,
-//                       //   ),
-//                       // ),
-//                       // const SizedBox(height: 8),
-//                       // const Text(
-//                       //   '— Log in using Fingerprint —',
-//                       //   style: TextStyle(
-//                       //     fontSize: 16,
-//                       //     fontWeight: FontWeight.w500,
-//                       //     color: Colors.white,
-//                       //   ),
-//                       // ),
-//                       // const SizedBox(height: 6),
-//                       // const Text(
-//                       //   'Place your finger on fingerprint scanner to login',
-//                       //   style: TextStyle(
-//                       //     fontSize: 14,
-//                       //     color: Colors.white70,
-//                       //   ),
-//                       //   textAlign: TextAlign.center,
-//                       // ),
-//                       // const SizedBox(height: 16),
-//                       // const Icon(
-//                       //   Icons.fingerprint,
-//                       //   size: 50,
-//                       //   color: Colors.white,
-//                       // ),
-//                       // const SizedBox(height: 16),
-//                       // const Text(
-//                       //   'SWIPE UP TO LOGIN WITH EMAIL',
-//                       //   style: TextStyle(
-//                       //     fontSize: 14,
-//                       //     fontWeight: FontWeight.w600,
-//                       //     color: Colors.white,
-//                       //   ),
-//                       // ),
-//                       // const SizedBox(height: 20),
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//             ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// Custom Clipper for the wave effect
-class CustomWaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 4, size.height, size.width / 2, size.height - 60);
-    path.quadraticBezierTo(
-        3 / 4 * size.width, size.height - 120, size.width, size.height - 80);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
 
 class CustomScaffold extends StatelessWidget {
   PreferredSizeWidget? appBar;
   final Widget? body;
   Widget? bottomSheet;
   Color? backgroundColor;
+  final bool resizeToAvoidBottomInset;
 
   CustomScaffold({
     super.key,
@@ -119,6 +16,7 @@ class CustomScaffold extends StatelessWidget {
     this.body,
     this.bottomSheet,
     this.backgroundColor,
+    this.resizeToAvoidBottomInset = true, // Default value
   });
 
   @override
@@ -127,6 +25,7 @@ class CustomScaffold extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: false,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset, // Add this line
       appBar: appBar,
       body: SizedBox(
         height: screenHeight,
@@ -135,7 +34,10 @@ class CustomScaffold extends StatelessWidget {
           children: [
             Positioned(
                 bottom: 0,
-                child: Image.asset('assets/images/all_bottom_design.png')),
+                child: Image.asset(
+                  'assets/images/all_bottom_design.png',
+                  fit: BoxFit.cover,
+                )),
             Positioned.fill(
               child: Padding(
                 padding: const EdgeInsets.only(top: 18),
@@ -155,6 +57,144 @@ class CustomScaffold extends StatelessWidget {
       backgroundColor: backgroundColor,
       bottomSheet: bottomSheet,
       key: key,
+    );
+  }
+}
+
+class CustomGradientButton extends StatelessWidget {
+  final Function()? ontap;
+  final String btntext;
+  final ThemeController themeController = Get.find<ThemeController>();
+  CustomGradientButton({required this.ontap, required this.btntext, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 321,
+      height: 48,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF22DA70), Color(0xFF22C4AF)],
+        ),
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: TextButton(
+        onPressed: ontap,
+        child: Text(btntext, style: Theme.of(context).textTheme.labelLarge),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final Function()? ontap;
+  final String btntext;
+  final ThemeController themeController = Get.find<ThemeController>();
+  CustomButton({required this.ontap, required this.btntext, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 321,
+      height: 48,
+      decoration: BoxDecoration(
+        color: themeController.isDarkMode.value
+            ? AppColors.darkprimaryTextColor
+            : Colors.white,
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: TextButton(
+        onPressed: ontap,
+        child: Text(btntext,
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(color: AppColors.primaryGradientStart)),
+      ),
+    );
+  }
+}
+
+class CustomGradientBorderTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String labelText;
+  final bool obscureText;
+  final ThemeController themeController = Get.find<ThemeController>();
+
+  CustomGradientBorderTextField({
+    super.key,
+    required this.controller,
+    required this.labelText,
+    this.obscureText = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100.0),
+        gradient: const LinearGradient(
+          colors: [Color(0xFF22DA70), Color(0xFF22B5DA)],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+      ),
+      child: Container(
+        height: 48,
+        margin: const EdgeInsets.all(1.0),
+        decoration: BoxDecoration(
+          color: themeController.isDarkMode.value
+              ? AppColors.darkprimaryTextColor
+              : Colors.white,
+          borderRadius: BorderRadius.circular(100.0),
+        ),
+        child: TextField(
+          controller: controller,
+          obscureText: obscureText,
+          cursorColor: themeController.isDarkMode.value
+              ? AppColors.darkprimaryTextColor
+              : Colors.white,
+          decoration: InputDecoration(
+            labelText: labelText,
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            labelStyle: TextStyle(
+                backgroundColor: themeController.isDarkMode.value
+                    ? AppColors.darkprimaryTextColor
+                    : Colors.white,
+                color: Colors.grey,
+                height: 0.1),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(100.0),
+              borderSide: BorderSide.none,
+            ),
+            filled: true,
+            fillColor: Colors.transparent,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LogoBackground extends StatelessWidget {
+  final Widget img;
+  final ThemeController themeController = Get.find<ThemeController>();
+
+  LogoBackground({super.key, required this.img});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 47,
+      width: 47,
+      decoration: BoxDecoration(
+          color: themeController.isDarkMode.value
+              ? AppColors.darkprimaryTextColor
+              : Colors.white,
+          shape: BoxShape.circle),
+      child: Center(child: img),
     );
   }
 }

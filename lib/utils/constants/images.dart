@@ -11,11 +11,19 @@ class AppAssetImages {
       '${_lineIconAssetsLocation}finger_print.svg';
 
   /* <---- Solid ----> */
-  //static const String moreSVGLogoSolid = '${_solidIconAssetsLocation}more.svg';
+  static const String googleSVGLogoSolid =
+      '${_solidIconAssetsLocation}google.svg';
+  static const String fbSVGLogoSolid = '${_solidIconAssetsLocation}fb.svg';
+  static const String twSVGLogoSolid = '${_solidIconAssetsLocation}tw.svg';
+  static const String instaSVGLogoSolid =
+      '${_solidIconAssetsLocation}insta.svg';
+  // static const String moreSVGLogoSolid = '${_solidIconAssetsLocation}more.svg';
 
 /*<--------Images-------->*/
 
   static const String logoImage = '${_imageAssetsLocation}logo.png';
+  static const String pinbackImage =
+      '${_imageAssetsLocation}pin_background.png';
   static const String introImage =
       '${_imageAssetsLocation}intro_background.png';
   static const String allbackImage =
