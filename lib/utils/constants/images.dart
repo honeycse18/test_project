@@ -9,6 +9,7 @@ class AppAssetImages {
 
   static const String fingerPrintLogoLine =
       '${_lineIconAssetsLocation}finger_print.svg';
+  static const String sentLogoLine = '${_lineIconAssetsLocation}send.svg';
 
   /* <---- Solid ----> */
   static const String googleSVGLogoSolid =
@@ -29,6 +30,7 @@ class AppAssetImages {
 /*<--------Images-------->*/
 
   static const String logoImage = '${_imageAssetsLocation}logo.png';
+  static const String topBackImage = '${_imageAssetsLocation}top.png';
   static const String pinbackImage =
       '${_imageAssetsLocation}pin_background.png';
   static const String introImage =

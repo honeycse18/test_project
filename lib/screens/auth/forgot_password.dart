@@ -10,10 +10,10 @@ import 'package:test_project/widgets/core_widget.dart';
 
 class ForgotPassword extends StatelessWidget {
   ForgotPassword({super.key});
-  final ThemeController themeController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
     return GetBuilder<ForgotPasswordController>(
         global: false,
         init: ForgotPasswordController(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_project/controllers/theme_controller.dart';
+import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 
 class CustomScaffold extends StatelessWidget {
@@ -178,14 +179,14 @@ class CustomGradientBorderTextField extends StatelessWidget {
   }
 }
 
-class LogoBackground extends StatelessWidget {
+class LogoCircleBackground extends StatelessWidget {
   final Widget img;
-  final ThemeController themeController = Get.find<ThemeController>();
 
-  LogoBackground({super.key, required this.img});
+  LogoCircleBackground({super.key, required this.img});
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
     return Container(
       height: 47,
       width: 47,
@@ -195,6 +196,37 @@ class LogoBackground extends StatelessWidget {
               : Colors.white,
           shape: BoxShape.circle),
       child: Center(child: img),
+    );
+  }
+}
+
+class LogoBoxBackground extends StatelessWidget {
+  final Widget img;
+  final String text;
+
+  LogoBoxBackground({super.key, required this.img, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+    return Column(
+      children: [
+        Container(
+          height: 45,
+          width: 45,
+          decoration: BoxDecoration(
+              color: themeController.isDarkMode.value
+                  ? AppColors.darkprimaryTextColor
+                  : Colors.white,
+              borderRadius: BorderRadius.circular(10)),
+          child: Center(child: img),
+        ),
+        AppGaps.hGap6,
+        Text(
+          text,
+          style: Theme.of(context).textTheme.labelLarge,
+        ),
+      ],
     );
   }
 }

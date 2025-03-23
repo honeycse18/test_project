@@ -40,6 +40,7 @@ dependencies:
   get_storage: ^2.1.1
   path: ^1.9.0
   dotted_border: ^2.1.0
+  flag: ^7.0.0
   
 
 dev_dependencies:

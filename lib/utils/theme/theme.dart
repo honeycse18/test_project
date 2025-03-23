@@ -38,7 +38,7 @@ class AppThemeData {
       bodyMedium: TextStyle(
           fontSize: 10,
           color: AppColors.primaryTextColor,
-          fontWeight: FontWeight.w600),
+          fontWeight: FontWeight.w400),
       bodySmall: TextStyle(
           fontSize: 8,
           color: AppColors.primaryTextColor,
@@ -101,7 +101,7 @@ class AppThemeData {
       bodyMedium: TextStyle(
           fontSize: 10,
           color: AppColors.primaryTextColor,
-          fontWeight: FontWeight.w600),
+          fontWeight: FontWeight.w400),
       bodySmall: TextStyle(
           fontSize: 8,
           color: AppColors.primaryTextColor,

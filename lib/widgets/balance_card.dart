@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/images.dart';
 
@@ -12,7 +13,8 @@ class BalanceCard extends StatelessWidget {
   final bool isAddCard;
   final VoidCallback onTap;
 
-  BalanceCard({
+  const BalanceCard({
+    super.key,
     required this.title,
     this.balance,
     this.subtitle,
@@ -26,8 +28,8 @@ class BalanceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 100,
-        height: 100,
+        width: 117,
+        height: 84,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -35,7 +37,7 @@ class BalanceCard extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.05),
               blurRadius: 5,
-              offset: Offset(0, 2),
+              offset: Offset(0, 4),
             ),
           ],
         ),
@@ -47,7 +49,7 @@ class BalanceCard extends StatelessWidget {
                     color: AppColors.signUpColor,
                     borderType: BorderType.RRect,
                     strokeWidth: 1,
-                    dashPattern: [4, 4],
+                    dashPattern: [3, 3],
                     radius: Radius.circular(40.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(40.0),
@@ -75,41 +77,56 @@ class BalanceCard extends StatelessWidget {
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(color: AppColors.signUpColor),
                   ),
                 ],
               )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      height: 41.74,
-                      width: 41.74,
-                      decoration: BoxDecoration(
-                        color: AppColors.iconBackground,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(icon, size: 20, color: Color(0xFF00C4B4))),
-                  SizedBox(height: 4),
-                  SizedBox(height: 4),
-                  Text(
-                    balance ?? '0.00',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+            : ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Stack(
+                  clipBehavior: Clip.antiAlias,
+                  children: [
+                    Positioned(
+                      top: -5,
+                      right: -5,
+                      child: Container(
+                          height: 41.74,
+                          width: 41.74,
+                          decoration: BoxDecoration(
+                            color: AppColors.iconBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child:
+                              Icon(icon, size: 20, color: Color(0xFF00C4B4))),
                     ),
-                  ),
-                  Text(
-                    subtitle ?? '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppGaps.hGap30,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 11.0),
+                          child: Text(
+                            balance ?? '0.00',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                    color: AppColors.primaryGradientStart),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 11.0),
+                          child: Text(subtitle ?? '',
+                              style: Theme.of(context).textTheme.bodyMedium),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
       ),
     );

@@ -10,7 +10,7 @@ import 'package:test_project/utils/theme/theme.dart';
 Future<void> main() async {
   await GetStorage.init();
   Get.put(WalletController());
-  Get.put(ThemeController());
+  Get.lazyPut(() => ThemeController());
 
   runApp(MyApp());
 }
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppThemeData.lightTheme,
           darkTheme: AppThemeData.darkTheme,
-          themeMode: themeController.isDarkMode.value
+          themeMode: Get.find<ThemeController>().isDarkMode.value
               ? ThemeMode.dark
               : ThemeMode.light, // Dynamically update theme
         ));

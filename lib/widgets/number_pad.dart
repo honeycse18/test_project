@@ -8,16 +8,17 @@ import 'package:test_project/utils/constants/colors.dart';
 class PinInputField extends StatelessWidget {
   final String pin;
   final Function() onTap;
-  final ThemeController themeController = Get.find<ThemeController>();
 
   PinInputField({
-    Key? key,
+    super.key,
     required this.pin,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+
     return Container(
       height: 48,
       decoration: BoxDecoration(
@@ -81,10 +82,10 @@ class NumberPad extends StatelessWidget {
   final Function() onDeletePressed;
 
   const NumberPad({
-    Key? key,
+    super.key,
     required this.onNumberPressed,
     required this.onDeletePressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -135,10 +136,10 @@ class NumberButton extends StatelessWidget {
   final ThemeController themeController = Get.find<ThemeController>();
 
   NumberButton({
-    Key? key,
+    super.key,
     required this.number,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

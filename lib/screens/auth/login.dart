@@ -14,10 +14,10 @@ import 'package:test_project/widgets/core_widget.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
-  final ThemeController themeController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
     return GetBuilder<LoginController>(
         global: false,
         init: LoginController(),
@@ -122,7 +122,7 @@ class Login extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                LogoBackground(
+                                LogoCircleBackground(
                                   img: SvgPicture.asset(
                                     AppAssetImages.googleSVGLogoSolid,
                                     color: themeController.isDarkMode.value
@@ -130,7 +130,7 @@ class Login extends StatelessWidget {
                                         : Colors.red,
                                   ),
                                 ),
-                                LogoBackground(
+                                LogoCircleBackground(
                                   img: SvgPicture.asset(
                                     AppAssetImages.fbSVGLogoSolid,
                                     color: themeController.isDarkMode.value
@@ -138,7 +138,7 @@ class Login extends StatelessWidget {
                                         : AppColors.logoColor1,
                                   ),
                                 ),
-                                LogoBackground(
+                                LogoCircleBackground(
                                   img: SvgPicture.asset(
                                     AppAssetImages.twSVGLogoSolid,
                                     color: themeController.isDarkMode.value
@@ -146,7 +146,7 @@ class Login extends StatelessWidget {
                                         : AppColors.logoColor2,
                                   ),
                                 ),
-                                LogoBackground(
+                                LogoCircleBackground(
                                   img: themeController.isDarkMode.value
                                       ? SvgPicture.asset(
                                           AppAssetImages.instaSVGLogoSolid,

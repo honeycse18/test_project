@@ -1,74 +1,135 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/controllers/wallet_controller.dart';
+import 'package:test_project/utils/constants/app_gaps.dart';
+import 'package:test_project/utils/constants/colors.dart';
 
 class EffectiveScoreWidget extends StatelessWidget {
   final WalletController controller = Get.find<WalletController>();
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+
     return Padding(
       padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Effective score',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: 8),
+          Text('Effective score',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(color: AppColors.primaryTextColor)),
+          SizedBox(height: 12),
           Container(
-            height: 24,
+            height: 54,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              gradient: LinearGradient(
-                colors: [
-                  Colors.red,
-                  Colors.orange,
-                  Colors.yellow,
-                  Colors.green,
-                  Colors.teal,
-                ],
-                stops: [0.0, 0.25, 0.5, 0.75, 1.0],
-              ),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 180, // Adjust position to point to "Good"
-                  top: 0,
-                  child: Container(
-                    width: 16,
-                    height: 24,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.grey, width: 1),
-                    ),
-                  ),
+              color: themeController.isDarkMode.value
+                  ? AppColors.darkprimaryTextColor
+                  : Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: themeController.isDarkMode.value
+                      ? AppColors.signUpColor
+                      : AppColors.boxShadow2Color.withOpacity(0.3),
+                  blurRadius: 5,
+                  offset: Offset(0, 0),
                 ),
               ],
+              borderRadius: BorderRadius.circular(10),
             ),
-          ),
-          SizedBox(height: 4),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Very Poor',
-                  style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Text('Poor', style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Text('Fair', style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Text('Good', style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Text('Excellent',
-                  style: TextStyle(fontSize: 12, color: Colors.grey)),
-            ],
-          ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  SizedBox(height: 4),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ScoreIndicator(
+                        text: 'Very Poor',
+                        color: Colors.red,
+                        showTriangle: false,
+                      ),
+                      ScoreIndicator(
+                        text: 'Poor',
+                        color: Colors.orange,
+                        showTriangle: false,
+                      ),
+                      ScoreIndicator(
+                        text: 'Fair',
+                        color: Colors.yellow,
+                        showTriangle: false,
+                      ),
+                      ScoreIndicator(
+                        text: 'Good',
+                        color: Colors.green,
+                        showTriangle: false,
+                      ),
+                      ScoreIndicator(
+                        text: 'Excellent',
+                        color: Colors.teal,
+                        showTriangle: true,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
+    );
+  }
+}
+
+class ScoreIndicator extends StatelessWidget {
+  final Color color;
+  final String text;
+  final bool showTriangle;
+
+  const ScoreIndicator({
+    Key? key,
+    required this.color,
+    required this.text,
+    this.showTriangle = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(text,
+            style: TextStyle(
+                fontSize: 9,
+                color: AppColors.primaryTextColor,
+                fontWeight: FontWeight.w500)),
+        AppGaps.hGap4,
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.center,
+          children: [
+            Container(
+              height: 6,
+              width: 63,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12), color: color),
+            ),
+            if (showTriangle)
+              Positioned(
+                bottom: -16,
+                child: Icon(
+                  Icons.arrow_drop_up,
+                  color: Color(0xFF00C4B4),
+                  size: 20,
+                ),
+              ),
+          ],
+        ),
+      ],
     );
   }
 }

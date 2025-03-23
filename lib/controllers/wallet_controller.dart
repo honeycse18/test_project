@@ -1,9 +1,31 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:test_project/screens/auth/forgot_password.dart';
+import 'package:test_project/screens/auth/login.dart';
+import 'package:test_project/screens/register/register.dart';
+import 'package:test_project/screens/wallet.dart';
+import 'package:test_project/widgets/card_dialog.dart';
 import 'package:test_project/widgets/wallet_dialog.dart';
 import 'package:test_project/widgets/wallet_widget.dart';
 
 class WalletController extends GetxController {
+  var currentTabIndex = 0.obs;
+
+  // List of pages to show based on selected tab
+  final pages = [
+    WalletScreen(),
+    WalletScreen(),
+    WalletScreen(),
+    WalletScreen(),
+  ];
+
+  void changeTab(int index) {
+    currentTabIndex.value = index;
+    update();
+  }
+
+  // Get current page based on tab index
+  Widget get currentPage => pages[currentTabIndex.value];
   var balance = 0.0.obs;
   var effectiveScore = 'Good'.obs;
   var transactions = <Transaction>[].obs;
@@ -20,54 +42,51 @@ class WalletController extends GetxController {
   void loadTransactions() {
     transactions.value = [
       Transaction(
-        name: 'John Doe',
-        profileImage: 'assets/images/profile.png',
-        amount: 2000.0,
-        date: DateTime.now().subtract(Duration(days: 1)),
-        isSent: true,
-      ),
+          name: 'John Doe',
+          amount: 2000.0,
+          date: DateTime.now().subtract(Duration(days: 1)),
+          isSent: true,
+          payMethod: 'Sent'),
       Transaction(
         name: 'Jessica Sanders',
-        profileImage: 'assets/images/profile.png',
         amount: 1988.68,
         date: DateTime.now().subtract(Duration(days: 2)),
         isSent: false,
+        payMethod: 'Received',
       ),
       Transaction(
-        name: 'John Smith',
-        profileImage: 'assets/images/profile.png',
-        amount: 2000.0,
-        date: DateTime.now().subtract(Duration(days: 3)),
-        isSent: true,
-      ),
+          name: 'John Smith',
+          amount: 2000.0,
+          date: DateTime.now().subtract(Duration(days: 3)),
+          isSent: true,
+          payMethod: 'Sent'),
       Transaction(
         name: 'John Doe',
-        profileImage: 'assets/images/profile.png',
         amount: 1988.68,
         date: DateTime.now().subtract(Duration(days: 4)),
         isSent: false,
+        payMethod: 'Received',
       ),
       Transaction(
         name: 'Grace Doe',
-        profileImage: 'assets/images/profile.png',
         amount: 2000.0,
         date: DateTime.now().subtract(Duration(days: 5)),
         isSent: true,
+        payMethod: 'Sent',
       ),
       Transaction(
         name: 'John Smith',
-        profileImage: 'assets/images/profile.png',
         amount: 1988.68,
         date: DateTime.now().subtract(Duration(days: 6)),
         isSent: false,
+        payMethod: 'Received',
       ),
       Transaction(
-        name: 'John Doe',
-        profileImage: 'assets/images/profile.png',
-        amount: 2000.0,
-        date: DateTime.now().subtract(Duration(days: 7)),
-        isSent: true,
-      ),
+          name: 'John Doe',
+          amount: 2000.0,
+          date: DateTime.now().subtract(Duration(days: 7)),
+          isSent: true,
+          payMethod: 'Sent'),
     ];
   }
 
@@ -127,6 +146,13 @@ class WalletController extends GetxController {
   void openNewWallet() {
     Get.dialog(
       NewWalletDialog(),
+      barrierDismissible: true,
+    );
+  }
+
+  void openNewCad() {
+    Get.dialog(
+      NewCardDialog(),
       barrierDismissible: true,
     );
   }
