@@ -4,6 +4,7 @@ import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/controllers/wallet_controller.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
+import 'package:test_project/utils/constants/constant.dart';
 import 'package:test_project/widgets/wallet_widget.dart';
 
 class NewWalletDialog extends StatelessWidget {
@@ -99,7 +100,7 @@ class NewWalletDialog extends StatelessWidget {
               child: TextButton(
                 onPressed: () => Get.back(),
                 child: Text(
-                  'Tap to close',
+                  AppConstants.tapToCloseText,
                   style: TextStyle(
                     color: AppColors.signUpColor,
                   ),

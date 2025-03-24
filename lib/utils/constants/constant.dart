@@ -17,4 +17,6 @@ class AppConstants {
   static const String login = "login";
   static const String confirmText = "CONFIRM";
   static const String resendPinText = "RESEND PIN";
+  static const String tapToOpenText = "Tap to Open";
+  static const String tapToCloseText = "Tap to close";
 }

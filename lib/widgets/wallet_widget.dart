@@ -4,6 +4,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:flag/flag.dart';
 import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/utils/constants/colors.dart';
+import 'package:test_project/utils/constants/constant.dart';
+import 'package:test_project/widgets/card_dialog.dart';
 
 class Transaction {
   final String name;
@@ -159,9 +161,12 @@ class CurrencyItem extends StatelessWidget {
             ),
             // Right section with 'Tap to open' text
             GestureDetector(
-              onTap: () => Get.back(),
+              onTap: () => Get.dialog(
+                NewCardDialog(),
+                barrierDismissible: true,
+              ),
               child: Text(
-                'Tap to open',
+                AppConstants.tapToOpenText,
                 style: TextStyle(
                   color: AppColors.signUpColor,
                   fontSize: 12,

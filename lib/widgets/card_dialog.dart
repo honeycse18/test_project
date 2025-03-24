@@ -6,6 +6,7 @@ import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/controllers/wallet_controller.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
+import 'package:test_project/utils/constants/constant.dart';
 import 'package:test_project/utils/constants/images.dart';
 import 'package:test_project/widgets/core_widget.dart';
 import 'package:test_project/widgets/transaction_widget.dart';
@@ -186,7 +187,7 @@ class NewCardDialog extends StatelessWidget {
               child: TextButton(
                 onPressed: () => Get.back(),
                 child: Text(
-                  'Tap to close',
+                  AppConstants.tapToCloseText,
                   style: TextStyle(
                     color: AppColors.signUpColor,
                   ),
