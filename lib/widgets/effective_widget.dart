@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:test_project/controllers/theme_controller.dart';
-import 'package:test_project/controllers/wallet_controller.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
 import 'package:test_project/utils/constants/colors.dart';
 
@@ -10,7 +9,6 @@ class EffectiveScoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeController themeController = Get.find<ThemeController>();
-    final WalletController controller = Get.find<WalletController>();
 
     return Padding(
       padding: EdgeInsets.all(16),

@@ -34,7 +34,7 @@ class VerificationScreen extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Image.asset(
                         AppAssetImages.pinbackImage,
-                        height: 600,
+                        height: 585,
                         width: double.infinity,
                         fit: BoxFit.fill,
                       ),
@@ -50,7 +50,7 @@ class VerificationScreen extends StatelessWidget {
                           width: screenWidth * 0.25,
                         ),
                       ),
-                      SizedBox(height: screenHeight * 0.025),
+                      SizedBox(height: screenHeight * 0.035),
                       Text(
                         AppConstants.enterPinText,
                         style: Theme.of(context).textTheme.displaySmall,
@@ -65,7 +65,7 @@ class VerificationScreen extends StatelessWidget {
                             )),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+                        padding: const EdgeInsets.only(top: 32.0, bottom: 26),
                         child: Container(
                           width: screenWidth * 0.8,
                           child: NumberPad(
@@ -86,7 +86,7 @@ class VerificationScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: screenHeight * 0.006),
+                        padding: EdgeInsets.only(top: screenHeight * 0.007),
                         child: TextButton(
                           onPressed: controller.resendPin,
                           child: Text(

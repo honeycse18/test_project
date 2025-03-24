@@ -4,6 +4,7 @@ import 'package:test_project/controllers/forgot_password_controller.dart';
 import 'package:test_project/controllers/theme_controller.dart';
 import 'package:test_project/screens/auth/verification.dart';
 import 'package:test_project/utils/constants/app_gaps.dart';
+import 'package:test_project/utils/constants/colors.dart';
 import 'package:test_project/utils/constants/constant.dart';
 import 'package:test_project/utils/constants/images.dart';
 import 'package:test_project/widgets/core_widget.dart';
@@ -36,8 +37,12 @@ class ForgotPassword extends StatelessWidget {
                       style: Theme.of(context).textTheme.displaySmall,
                     ),
                     AppGaps.hGap5,
-                    Text("Please enter you email",
-                        style: Theme.of(context).textTheme.labelSmall),
+                    Text(
+                      "Please enter you email",
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: AppColors.primaryTextColor,
+                          ),
+                    ),
                     AppGaps.hGap90,
 
                     // Email Input

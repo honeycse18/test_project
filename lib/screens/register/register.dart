@@ -47,7 +47,7 @@ class Register extends StatelessWidget {
                               width: screenWidth * 0.25,
                             ),
                           ),
-                          SizedBox(height: screenHeight * 0.03),
+                          SizedBox(height: screenHeight * 0.02),
                           Text(
                             AppConstants.registerText,
                             style: Theme.of(context).textTheme.displayLarge,
@@ -94,7 +94,7 @@ class Register extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: screenHeight * 0.15),
+                          SizedBox(height: screenHeight * 0.16),
                           Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +129,7 @@ class Register extends StatelessWidget {
                                           : Colors.red,
                                     ),
                                   ),
-                                  AppGaps.wGap10,
+                                  AppGaps.wGap25,
                                   LogoCircleBackground(
                                     img: SvgPicture.asset(
                                       AppAssetImages.fbSVGLogoSolid,
@@ -138,7 +138,7 @@ class Register extends StatelessWidget {
                                           : AppColors.logoColor1,
                                     ),
                                   ),
-                                  AppGaps.wGap10,
+                                  AppGaps.wGap25,
                                   LogoCircleBackground(
                                     img: SvgPicture.asset(
                                       AppAssetImages.twSVGLogoSolid,
@@ -147,7 +147,7 @@ class Register extends StatelessWidget {
                                           : AppColors.logoColor2,
                                     ),
                                   ),
-                                  AppGaps.wGap10,
+                                  AppGaps.wGap25,
                                   LogoCircleBackground(
                                     img: themeController.isDarkMode.value
                                         ? SvgPicture.asset(

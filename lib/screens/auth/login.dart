@@ -54,7 +54,7 @@ class Login extends StatelessWidget {
                             AppConstants.loginText,
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
-                          SizedBox(height: screenHeight * 0.05),
+                          SizedBox(height: screenHeight * 0.09),
                           CustomGradientBorderTextField(
                             controller: controller.emailController,
                             labelText: ' Email ',
@@ -108,7 +108,7 @@ class Login extends StatelessWidget {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: screenHeight * 0.20),
+                            padding: EdgeInsets.only(top: screenHeight * 0.17),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +131,7 @@ class Login extends StatelessWidget {
                                             .labelLarge),
                                   ],
                                 ),
-                                SizedBox(height: screenHeight * 0.03),
+                                SizedBox(height: screenHeight * 0.035),
                                 FittedBox(
                                     child: Row(
                                   mainAxisAlignment:
@@ -145,7 +145,7 @@ class Login extends StatelessWidget {
                                             : Colors.red,
                                       ),
                                     ),
-                                    AppGaps.wGap4,
+                                    AppGaps.wGap25,
                                     LogoCircleBackground(
                                       img: SvgPicture.asset(
                                         AppAssetImages.fbSVGLogoSolid,
@@ -154,7 +154,7 @@ class Login extends StatelessWidget {
                                             : AppColors.logoColor1,
                                       ),
                                     ),
-                                    AppGaps.wGap4,
+                                    AppGaps.wGap25,
                                     LogoCircleBackground(
                                       img: SvgPicture.asset(
                                         AppAssetImages.twSVGLogoSolid,
@@ -163,7 +163,7 @@ class Login extends StatelessWidget {
                                             : AppColors.logoColor2,
                                       ),
                                     ),
-                                    AppGaps.wGap4,
+                                    AppGaps.wGap25,
                                     LogoCircleBackground(
                                       img: themeController.isDarkMode.value
                                           ? SvgPicture.asset(

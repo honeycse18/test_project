@@ -45,7 +45,7 @@ class PinInputField extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: index < pin.length
                         ? AppColors.primaryTextColor
-                        : AppColors.primaryTextColor.withOpacity(0.3),
+                        : Colors.transparent,
                   ),
                 ),
               ),
