@@ -19,7 +19,7 @@ class ForgotPassword extends StatelessWidget {
         global: false,
         init: ForgotPasswordController(),
         builder: (controller) => CustomScaffold(
-              resizeToAvoidBottomInset: false, // Add this line
+              resizeToAvoidBottomInset: false,
               body: SafeArea(
                 child: Column(
                   children: [

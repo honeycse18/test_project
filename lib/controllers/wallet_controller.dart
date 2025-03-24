@@ -11,7 +11,7 @@ import 'package:test_project/widgets/wallet_widget.dart';
 class WalletController extends GetxController {
   var currentTabIndex = 0.obs;
 
-  // List of pages to show based on selected tab
+ 
   final pages = [
     WalletScreen(),
     WalletScreen(),
@@ -24,7 +24,7 @@ class WalletController extends GetxController {
     update();
   }
 
-  // Get current page based on tab index
+ 
   Widget get currentPage => pages[currentTabIndex.value];
   var balance = 0.0.obs;
   var effectiveScore = 'Good'.obs;
@@ -34,7 +34,7 @@ class WalletController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Load sample data
+   
     loadTransactions();
     loadCurrencies();
   }

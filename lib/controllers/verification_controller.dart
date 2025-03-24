@@ -16,12 +16,10 @@ class VerificationController extends GetxController {
   }
 
   void confirmPin() {
-    // Handle PIN confirmation here
     Get.snackbar('PIN Submitted', 'Your PIN: ${pinText.value}');
   }
 
   void resendPin() {
-    // Handle PIN resend functionality
     Get.snackbar('PIN Resent', 'A new PIN has been sent');
   }
 }

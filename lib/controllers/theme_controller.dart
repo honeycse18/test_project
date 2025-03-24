@@ -6,7 +6,7 @@ class ThemeController extends GetxController {
   final _box = GetStorage();
   final _key = "isDarkMode";
 
-  RxBool isDarkMode = false.obs; // Reactive variable for theme status
+  RxBool isDarkMode = false.obs;
 
   @override
   void onInit() {

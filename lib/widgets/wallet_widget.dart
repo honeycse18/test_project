@@ -44,19 +44,17 @@ class CurrencyItem extends StatelessWidget {
     required this.currency,
   });
 
-  // Helper method to get country code from currency code
   String _getCountryCode(String currencyCode) {
-    // Map currency codes to country codes (ISO 3166-1 alpha-2)
     switch (currencyCode) {
       case 'AUD':
-        return 'AU'; // Australian Dollar
+        return 'AU';
       case 'GBP':
-        return 'GB'; // British Pound
+        return 'GB';
       case 'NZD':
-        return 'NZ'; // New Zealand Dollar
+        return 'NZ';
       case 'SGD':
-        return 'SG'; // Singapore Dollar
-      // Add more currency to country mappings as needed
+        return 'SG';
+
       default:
         return '';
     }
@@ -68,7 +66,7 @@ class CurrencyItem extends StatelessWidget {
     final countryCode = _getCountryCode(currency.code);
 
     return Container(
-      height: 48, // Increased height for better spacing
+      height: 48,
       decoration: BoxDecoration(
         color: themeController.isDarkMode.value
             ? AppColors.darkprimaryTextColor
@@ -84,17 +82,14 @@ class CurrencyItem extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(10),
       ),
-      // Replace ListTile with Row for better control over layout
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center, // Center vertically
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Left section with flag and text
             Row(
               children: [
-                // Flag container
                 Container(
                   height: 32,
                   width: 32,
@@ -132,11 +127,9 @@ class CurrencyItem extends StatelessWidget {
                           ),
                   ),
                 ),
-                SizedBox(width: 12), // Space between flag and text
-                // Currency information
+                SizedBox(width: 12),
                 Column(
-                  mainAxisAlignment:
-                      MainAxisAlignment.center, // Center vertically
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -146,8 +139,7 @@ class CurrencyItem extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: AppColors.primaryTextColor),
                     ),
-                    SizedBox(
-                        height: 2), // Small space between title and subtitle
+                    SizedBox(height: 2),
                     Text(
                       currency.description,
                       style: TextStyle(
@@ -159,7 +151,6 @@ class CurrencyItem extends StatelessWidget {
                 ),
               ],
             ),
-            // Right section with 'Tap to open' text
             GestureDetector(
               onTap: () => Get.dialog(
                 NewCardDialog(),

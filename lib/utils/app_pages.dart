@@ -8,11 +8,6 @@ class AppPages {
   static final List<GetPage<dynamic>> pages = [
     GetPage(name: AppPageNames.rootScreen, page: () => const IntroScreen()),
     GetPage(name: AppPageNames.logInScreen, page: () => Login()),
-
-    // GetPage(
-    //     name: AppPageNames.verificationScreen,
-    //     page: () => const VerificationScreen()),
-    // GetPage(name: AppPageNames.offerScreen, page: () => const OfferScreen()),
   ];
 
   static final GetPage<dynamic> unknownScreenPageRoute = GetPage(

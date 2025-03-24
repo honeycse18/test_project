@@ -112,7 +112,7 @@ class NavBarItem extends StatelessWidget {
               ),
             ),
           ),
-          if (!isSelected) // Only show the label if not selected
+          if (!isSelected)
             Text(
               label,
               style: TextStyle(

@@ -17,7 +17,7 @@ class CustomScaffold extends StatelessWidget {
     this.body,
     this.bottomSheet,
     this.backgroundColor,
-    this.resizeToAvoidBottomInset = true, // Default value
+    this.resizeToAvoidBottomInset = true,
   });
 
   @override
@@ -26,7 +26,7 @@ class CustomScaffold extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: false,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset, // Add this line
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: appBar,
       body: SizedBox(
         height: screenHeight,

@@ -23,7 +23,7 @@ class NewCardDialog extends StatelessWidget {
       insetPadding: EdgeInsets.symmetric(horizontal: 16),
       shape: RoundedRectangleBorder(
         borderRadius:
-            BorderRadius.circular(23), // Increased border radius to 100
+            BorderRadius.circular(23), 
       ),
       child: Container(
         height: 630,

@@ -18,10 +18,10 @@ class NewWalletDialog extends StatelessWidget {
       insetPadding: EdgeInsets.symmetric(horizontal: 16),
       shape: RoundedRectangleBorder(
         borderRadius:
-            BorderRadius.circular(23), // Increased border radius to 100
+            BorderRadius.circular(23),  
       ),
       child: Container(
-        height: 600, // Set fixed height to 500
+        height: 600,  
         padding: EdgeInsets.symmetric(vertical: 16),
         child: Column(
           children: [

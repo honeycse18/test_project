@@ -39,7 +39,6 @@ class IntroScreen extends StatelessWidget {
         ),
         body: GestureDetector(
           onVerticalDragEnd: (details) {
-            // Check if the swipe was upward
             if (details.velocity.pixelsPerSecond.dy < -300) {
               Get.to(() => Login());
             }
@@ -137,24 +136,6 @@ class IntroScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // Align(
-              //   alignment: Alignment.bottomCenter,
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(bottom: 100.0),
-              //     child: Obx(() => AnimatedContainer(
-              //           duration: const Duration(milliseconds: 800),
-              //           transform: Matrix4.translationValues(
-              //               0, controller.swipeIndicatorOffset.value, 0),
-              //           child: Icon(
-              //             Icons.swipe_up,
-              //             color: themeController.isDarkMode.value
-              //                 ? AppColors.darkprimaryTextColor
-              //                 : Colors.white,
-              //             size: 40,
-              //           ),
-              //         )),
-              //   ),
-              // ),
             ],
           ),
         ),

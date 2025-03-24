@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 class IntroController extends GetxController {
   Future<void> authenticate() async {}
 
-  //Swipe button
-
   RxDouble position = 0.0.obs;
   RxDouble swipeIndicatorOffset = 0.0.obs;
   Timer? _timer;
@@ -14,7 +12,7 @@ class IntroController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Start the animation for the swipe indicator
+
     _startSwipeIndicatorAnimation();
   }
 
